@@ -1,0 +1,77 @@
+<header>
+     <h2><strong style="color: red">Analist</strong><strong style="color: blue">Doper</strong></h2>
+
+    <nav>
+        <ul>
+        <li><a routerLink="./" fragment="quienes-somos">Quienes somos</a></li>
+        <li><a routerLink="./" fragment="contacto">Contacto</a></li>
+        <li><a routerLink="./" fragment="servicios">Servicios</a></li>
+        <li><a routerLink="/login"><strong>Login</strong></a></li>
+        </ul>
+    </nav>
+</header>
+<section id="sobre-la-empresa" >
+    <div>
+    <div class="contenedor-animado">
+    <h2 class="texto-tipeado">La herramienta perfecta para el <strong style="color: red">analisis de talentos</strong></h2>
+    </div>
+    <p>Somos una empresa dedicada a proporcionar soluciones innovadoras para la gestión de talento, creando valor para nuestros clientes con herramientas  avanzadas inpulsadas con IA</p>
+</div>
+<!--<div >
+    <img src="prueba.png" alt="una imagen de tecnologia" >
+</div>-->
+</section>
+
+<main>
+<!-- Servicios -->
+    <section id="servicios">
+        <div class="container">
+            <h2>Nuestros Servicios</h2>
+            <div class="grid-servicios">
+                <div class="servicio-card">
+                    <h3>Evaluación de CV</h3>
+                    <p>Análisis automatizado de currículums para identificar habilidades técnicas y blandas mediante procesamiento de lenguaje natural.</p>
+                </div>
+                <div class="servicio-card">
+                    <h3>Predictor de Desempeño</h3>
+                    <p>Modelos predictivos que evalúan el potencial de éxito de un candidato dentro de la cultura organizacional de tu empresa.</p>
+                </div>
+                <div class="servicio-card">
+                    <h3>Rankings Inteligentes</h3>
+                    <p>Clasificación de candidatos basada en el porcentaje de coincidencia exacta con los requisitos de la vacante.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quienes Somos -->
+    <section id="quienes-somos">
+        <div class="container">
+            <h2>Quienes somos</h2>
+            <div class="card-informativa">
+                <p>
+                    Somos una empresa tecnológica dedicada a optimizar los procesos de selección en la República Dominicana. 
+                    Nuestra plataforma utiliza algoritmos de aprendizaje profundo para evaluar competencias y perfiles psicológicos, 
+                    ayudando a las empresas a encontrar al candidato ideal en tiempo récord, eliminando sesgos y mejorando la calidad de la contratación.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contacto -->
+    <section id="contacto">
+        
+        <h2 style="width: 40vw; top: 0;">¿Interesado en nuestros servicios? Déjanos tu información y <strong>nos pondremos en contacto contigo.</strong></h2>
+
+        <app-form-comunication 
+        [tituloFormulario]="'Contacto'"
+        (eventoOcurido)="procesarEnvio($event)"    ></app-form-comunication>
+    </section>
+</main>
+<footer>
+    <p>Copyright © 2024 Analistdoper. All rights reserved.</p>
+    <p><a download="../assets/documents/terminos-y-condiciones.pdf">Términos y condiciones</a></p>
+    <p>Cualquier duda, contacta con nosotros: info@analistdoper.com</p>
+    <p>Tell: +1 (809) 885-9147</p>
+</footer>

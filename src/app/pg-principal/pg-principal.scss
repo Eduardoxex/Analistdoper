@@ -1,0 +1,249 @@
+// Variables
+$primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$main-card-color: linear-gradient(135deg, #212951 0%, #461477 100%);
+$accent-color: #00d2ff;
+$accent-hover: #ff6347;
+$text-light: #ffffff;
+$dark-bg: #1a1a2e;
+$card-bg: rgba(255, 255, 255, 0.05);
+
+//  Base
+:host {
+  display: block;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: $dark-bg;
+  color: $text-light;
+  min-height: 100vh;
+  padding-top: 10vh; /* Esto empuja todo el contenido hacia abajo exactamente lo que mide el nav */
+}
+
+
+//  Navbar
+nav {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+
+  ul {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    margin-left: 40vw;
+
+    li {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: $text-light;
+      cursor: pointer;
+      position: relative;
+ 
+      a {
+        text-decoration: none;
+        color: $accent-color;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $accent-hover;
+        }
+
+        // Subrayado animado
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -5px;
+          width: 100%;
+          height: 2px;
+          background: $accent-color;
+          transform: scaleX(0);
+          transition: transform 0.3s ease;
+        }
+
+        &:hover::after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+}
+
+//  Footer
+footer {
+  background-color: rgba(38, 36, 36, 0.7);
+  margin-top: auto;
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
+
+  a {
+    color: #ccc;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s;
+
+    &:hover {
+      color: $accent-color;
+      border-color: $accent-color;
+    }
+  }
+}
+
+//  Secciones
+
+#contacto{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+  h2 {
+    margin-top: 20vh;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+}
+section {
+  padding: 6rem 2rem;
+  text-align: center;
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #ccc;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}
+
+#sobre-la-empresa {
+  display: flex;
+  flex-direction: row;
+  background: $main-card-color;
+  //background: $primary-gradient; antes
+  color: $text-light;
+  height: 80vh;
+  border-radius: 12px;
+  margin: 20px;
+  padding: 2rem;
+
+  /*img{
+    width: 40vw; 
+    height: 35vh;
+    border-radius: 12px;
+    border: 0.3px solid white;
+    box-shadow: 0px 8px 37px 0px rgba(241, 239, 239, 0.37);
+    //box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: all ease 0.7s;
+
+    &:hover{
+    box-shadow: 0px 8px 30px 0px rgba(241, 239, 239, 0.37);
+    transform: scale(1.02);
+
+    }
+
+  }*/
+
+
+  h2 {
+    margin-top: 20vh;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+//servicios
+
+.grid-servicios{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+     
+    .servicio-card{
+        background: $card-bg;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        height: 50vh;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 210, 255, 0.3);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            background: $primary-gradient;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            color: #aaa;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+    }
+}
+
+
+
+//  Animaciones
+.contenedor-animado {
+  display:contents;
+}
+
+.texto-tipeado {
+  display: block;
+  white-space: nowrap;
+  border-right: 4px solid $accent-color;
+  width: 0;
+  overflow: hidden;
+  animation: escribir 6s steps(32) infinite, cursor 0.8s infinite;
+}
+
+@keyframes escribir {
+  0% { width: 0; }
+  40% { width: 100%; }
+  60% { width: 100%; }
+  100% { width: 0; }
+}
+
+@keyframes cursor {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: $accent-color; }
+}
+
+
+
+
+header{
+
+  h2{
+    margin-top: -60px;
+    position: fixed;
+  }
+}

@@ -1,0 +1,47 @@
+<header>
+    <nav>
+        <ul>
+        <li><a routerLink="/pgPrincipal">Pagina principal</a></li>
+        <li><a routerLink="/login">Login</a></li>
+        </ul>
+    </nav>
+</header>
+<section id="login">
+    <h2>Registro</h2>
+    <p>Por favor, introduce tus datos para registrarte.</p>
+    <div>
+        <form #registroForm="ngForm" (ngSubmit)="registrar(registroForm)">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" ngModel required placeholder="Nombre">
+            <label for="name2">Segundo Nombre</label>
+            <input type="text" id="name2" name="name2" ngModel placeholder="Segundo Nombre">
+            <label for="lastName">Apellido:</label>
+            <input type="text" id="lastName" name="lastName" ngModel required placeholder="Apellido">
+            <label for="lastName2">Segundo Apellido</label>
+            <input type="text" id="lastName2" name="lastName2" ngModel required placeholder="Segundo Apellido">
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" ngModel required placeholder="Email">
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" ngModel required placeholder="Password">
+            <label for="confirmPassword">Confirmar contraseña:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" ngModel required placeholder="Confirmar Password">
+            <label for="ocupacion">Ocupacion</label>
+            <select id="ocupacion" ngModel name="ocupacion" required>
+                <option value="" disabled selected>Seleccione una ocupaicon</option>
+                <option value="analista" style="color: black">Analista</option>
+                <option value="developer" style="color: black;">Developer</option>
+                <option value="encargado" style="color: black;">Encargado</option>
+                <option value="regular" style="color: black">Estudiante</option>
+                <option value="gerente" style="color: black">Gerente</option>
+            </select>
+            <button type="submit" [disabled]="!registroForm.valid">Registrarse</button>
+        </form>
+
+    </div>
+</section>
+<footer>
+    <p>Copyright © 2024 Analistdoper. All rights reserved.</p>
+    <p><a download="../assets/documents/terminos-y-condiciones.pdf">Términos y condiciones</a></p>
+    <p>Cualquier duda, contacta con nosotros: info@analistdoper.com</p>
+    <p>Tell: +1 (809) 885-9147</p>
+</footer>

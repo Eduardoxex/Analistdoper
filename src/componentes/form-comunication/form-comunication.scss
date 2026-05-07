@@ -1,0 +1,57 @@
+// Variables
+$primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$main-card-color: linear-gradient(135deg, #212951 0%, #461477 100%);
+$accent-color: #00d2ff;
+$accent-hover: #ff6347;
+$text-light: #ffffff;
+$dark-bg: #1a1a2e;
+$card-bg: rgba(255, 255, 255, 0.05);
+
+
+//formulario de contacto
+
+form{
+  margin: 15px;
+  background-color: $card-bg;
+  padding-top: 0;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  input, textarea {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: $text-light;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+      background-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 5px $accent-color;
+    }
+  }
+
+
+  button{
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: $primary-gradient;
+    color: $text-light;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 0 3px white;
+    }
+  }
+
+}

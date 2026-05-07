@@ -1,0 +1,10 @@
+    <form #contactoForm="ngForm" (ngSubmit)="enviarInformacionInteresado(contactoForm)">
+            <h2>{{tituloFormulario}}</h2>
+            <div>
+            <input style="margin-right: 100px;;" type="text" id="name" name="name" ngModel required placeholder="Nombre">
+            <input type="email" id="email" name="email" ngModel required placeholder="Email">
+            </div>
+            <label style="text-align: left;" for="message"><strong>Mensaje</strong></label>
+            <textarea id="message" name="message" ngModel required placeholder="Escribe tu mensaje aquí..."></textarea>
+            <button type="submit" [disabled]="!contactoForm.valid">Enviar</button>
+        </form>
