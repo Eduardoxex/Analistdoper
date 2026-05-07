@@ -1,6 +1,6 @@
 # 🔍 Analistdoper - Frontend
 
-![Angular](https://img.shields.io/badge/Angular-v17+-red?style=for-the-badge&logo=angular)
+![Angular](https://img.shields.io/badge/Angular-v20-red?style=for-the-badge&logo=angular)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Development-success?style=for-the-badge)
