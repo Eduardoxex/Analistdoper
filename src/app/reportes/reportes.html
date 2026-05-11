@@ -1,0 +1,55 @@
+<app-nav-bar></app-nav-bar>
+
+
+<main>
+    <section id="datos-entrada">
+        <div class="contenedor-controles">
+            <form #selectoresForm="ngForm" (ngSubmit)="orquestadorFunciones(selectoresForm)">
+                <div>
+                <label for="identificador_registro">
+                    Identificador registro
+                <input type="number" id="identificador_registro" name="identificador_registro" ngModel placeholder="Ingrese el identificador del registro">
+                </label>
+                <label for="capacidad_acoplaminento">
+                    Capacidad de acoplamiento
+                <input type="number" id="capacidad_acoplaminento" name="capacidad_acoplaminento" ngModel placeholder="Ingrese la capacidad de acoplamiento del registro">
+                </label>
+                <label for="Resultado">
+                    Resultado Final
+                <input type="text" id="Resultado" name="Resultado" ngModel placeholder="Ingrese el resultado del registro">
+                </label>
+                </div>
+                <button type="submit" [disabled]="!selectoresForm.valid">Obtener resultados</button>
+            </form>
+        </div>
+    </section>
+    <section id="seccion-tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th id="id_registro">Identificador</th>
+                    <th id="id_analista">Identificador Analista</th>
+                    <th id="capacidad_acoplamiento">capacidad de acoplamiento</th>
+                    <th id="resultado_final">Resultado final</th>
+                    <th id="fecha_de_analisis">Fecha</th>
+                    <th id="eliminar">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if(dataArray.length < 0){
+                    <p>No hay nada para mostrar</p>
+                }@else{
+                @for (data of dataArray; track $index){
+                    <tr>
+                        <td id="{{data.anali_anali}}">{{data.anali_anali}}</td>
+                        <td>{{data.anali_user}}</td>
+                        <td>{{data.anali_capacidaddeacoplamiento}}</td>
+                        <td>{{data.anali_resultadofinal}}</td>
+                        <td>{{data.anali_date | date:'yyyy/mm/dd'}}</td>
+                        <td (click)="deletRow(data.anali_anali)">Eliminar</td>
+                    </tr>
+                }}
+            </tbody>
+        </table>
+    </section>
+</main>

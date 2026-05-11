@@ -1,8 +1,80 @@
-<nav class="navegacion">
-    <ul>
-        <li><a routerLink="/analisis">Analisis</a></li>
-        <li><a routerLink="/dashboard">Dasboard</a></li>
-        <li><a routerLink="/reportes">Reportes</a></li>
-        <li><a routerLink="/ajustes">Ajustes</a></li>
-    </ul>
-</nav>
+
+
+<main>
+<app-nav-bar></app-nav-bar>
+
+<div>
+    <section id="analizar-cv">
+            <header>
+
+    </header>
+        <div id="contenedor-form-analizar">
+            <form #analizarForm="ngForm" (ngSubmit)="analizarCv(analizarForm)">
+                <label for="cv" >
+                <input type="file" required name="cv" id="cv" aria-placeholder="ingrese CV" hidden (change)="onFileSelected($event)">
+                <div class="drop-area">
+                    <div class="icon">📁</div>
+                   @if(!oja_de_vida){
+                    <p>Ingresa tu CV en formato <strong>PDF</strong> por favor</p>
+                }
+                   @else{
+                    <p>CV ingresado: <strong>{{oja_de_vida.name}}</strong></p>
+
+                    }
+                </div>
+                </label>
+                <div id="contenedor-input-cv">
+                    <input type="number" id="id_analista" placeholder="id del analista" name="id_analista" required ngModel>
+                    <textarea placeholder="Por favor intrudusca la descricion del puesto con el cual se analiza" required ngModel id="positionDescription" name="positionDescription"></textarea>
+                    <button type="submit" [disabled]="!analizarForm.valid" >Analizar</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section id="cv-analizado">
+        <div class="contenedor-info-cv">
+            @if (!cv_analizado && !cargando) {
+                        <p>Escanee un archivo para visualizar el resultado en este apartado</p>
+                    } @else if(cargando){
+                    <p>El contenido esta cargando</p>
+
+                    } @else{
+                        <P><strong>ID usuario: </strong>{{contenido_a_renderizar.anali_anali}} <strong>Fecha: </strong>{{contenido_a_renderizar.anali_date | date:'dd/mm/yyyy'}}</P>
+                        <p>A continuacion se presentan los resultados optenidos del analisis</p>
+                        <fieldset>
+                            <legend>Informacion</legend>
+                            <div class="contenedor-informacion">
+                              <h3>Recomendaciones</h3>
+                                <ul>
+                                    @for(i of contenido_a_renderizar.anali_recomendaciones; track $index){
+                                        <li>{{i}}</li>
+                                    }
+                                </ul>
+                                 <h3>Palabras que representan al candidato</h3>
+                                <ul>
+                                    @for(i of contenido_a_renderizar.anali_keywords; track $index){
+                                        <li>{{i}}</li>
+                                    }
+                                </ul>
+                            </div>
+                            <div class="contenedor-informacion2">
+                            <h3>Resultado final</h3>
+                                <p>{{contenido_a_renderizar.anali_resultadofinal}}</p>
+                            <h3>Capacidad de acoplamiento</h3>
+                                <p>{{contenido_a_renderizar.anali_capacidaddeacoplamiento}}</p>
+                            </div>
+                        </fieldset>
+                    }
+        </div>
+    </section>
+
+    </div>
+
+</main>
+    <footer>
+        <p><a download="../assets/documents/terminos-y-condiciones.pdf">Términos y condiciones</a></p>
+        <p>Need some help, we're here for you send us an email to: luisgarciasguzman@gmail.com </p>
+        <p>All right reservef</p>
+    </footer>
+
+

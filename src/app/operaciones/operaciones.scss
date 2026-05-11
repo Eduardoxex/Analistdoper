@@ -1,37 +1,303 @@
-.navegacion{
-    background-color: #333;
-    overflow: hidden;
-    height: 100vh;
-    width: 6vw;
+// Variables de color para mantener consistencia
+$primary-color: #007bff;
+$secondary-color: #6c5ce7;
+$success-color: #27ae60;
+$text-main: #2d3436;
+$text-muted: #636e72;
+$bg-card: #ffffff;
+$bg-body: #f4f7f6;
+$border-color: #dfe6e9;
+
+// Reset y estilos generales para CanMatch
+main {
+    display: flex;
+    background-color: $bg-body;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-.navegacion ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+footer {
     display: flex;
     flex-direction: column;
-    align-items: space-around;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    background-color: $bg-body;
+    border-top: 1px solid $border-color;
+    color: $text-muted;
+    font-size: 0.9rem;
 }
 
-.navegacion ul li{
-    margin: 20px 0;
-    text-decoration: none;
+#analizar-cv{
+    margin-left: 10vw;
+}
 
-    a{
-    text-decoration: none;
-    color: white;
-    font-size: 15px;
-    border: solid 1px white;
-    padding: 5px;
-    border-radius: 5px;
-    margin-left: 3px;
-    transition: all ease 0.3s;
 
-    &:hover{
-        color: #0c0101;
-        background-color: #ddd;
-    }
+// Contenedor del Formulario de Análisis (Ajustado según image_b36c53.png)
+#contenedor-form-analizar {
+    background-color: $bg-card;
+    width: 85%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    border: 1px solid $border-color;
+
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 30px;
+
+        #contenedor-input-cv {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-width: 300px;
+            gap: 15px;
+
+            input[type="text"] {
+                padding: 12px;
+                border: 1px solid $border-color;
+                border-radius: 8px;
+                font-size: 1rem;
+            }
+
+            textarea {
+                height: 300px;
+                padding: 20px;
+                border: 2px solid $primary-color; // Resaltado como en la captura
+                border-radius: 15px;
+                font-family: inherit;
+                transition: all 0.3s ease;
+                resize: none;
+
+                &:focus {
+                    outline: none;
+                    box-shadow: 0 0 15px rgba(0, 123, 255, 0.2);
+                }
+            }
+        }
+
+        .drop-area {
+            border: 2px dashed $border-color;
+            border-radius: 20px;
+            flex: 1;
+            min-width: 300px;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: #fafafa;
+            transition: all 0.4s ease;
+            cursor: pointer;
+
+            &:hover {
+                border-color: $primary-color;
+                background-color: #f0f7ff;
+            }
+        }
+
+        button {
+            width: 200px;
+            margin-top: 20px;
+            padding: 15px;
+            background: $primary-color;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: darken($primary-color, 10%);
+                transform: translateY(-2px);
+            }
+        }
     }
 }
 
+// Resultados del Análisis (Mejorado para corregir image_b3d1aa.png)
+#contenedor-form-analizar{
+            width: 80vw;
+        margin-left: 4vw;
+
+}
+
+#cv-analizado {
+    width: 85%;
+    max-width: 1200px;
+    margin: 20px auto 60px;
+
+    .contenedor-info-cv {
+        margin-left: 8vw;
+        width: 80vw;
+        background: $bg-card;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        border: 1px solid $border-color;
+        text-align: center;
+
+        .header-analisis {
+            margin-bottom: 30px;
+            color: $text-main;
+            
+            p {
+                margin: 5px 0;
+                color: $text-muted;
+            }
+        }
+
+        fieldset {
+            border: 1px solid $border-color;
+            border-radius: 15px;
+            padding: 40px;
+            background: #ffffff;
+            display: flex;
+            flex-direction: row; // Asegura columnas en desktop
+            flex-wrap: wrap;
+            gap: 40px;
+            text-align: left;
+            margin-top: 20px;
+
+            legend {
+                padding: 5px 25px;
+                font-weight: 800;
+                color: $text-muted;
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                background: white;
+                border: 1px solid $border-color;
+                border-radius: 50px;
+            }
+
+            .contenedor-informacion {
+                flex: 2;
+                min-width: 300px;
+
+                h3 {
+                    color: $text-main;
+                    font-size: 1.3rem;
+                    font-weight: 800;
+                    margin-bottom: 20px;
+                    text-align: center;
+                    border-bottom: 2px solid $bg-body;
+                    padding-bottom: 10px;
+                }
+
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+
+                    li {
+                        padding: 12px 0 12px 35px;
+                        color: $text-main;
+                        font-size: 1rem;
+                        position: relative;
+                        line-height: 1.5;
+                        border-bottom: 1px solid #f1f1f1;
+
+                        &:before {
+                            content: '●';
+                            position: absolute;
+                            left: 10px;
+                            color: $primary-color;
+                            font-size: 0.8rem;
+                        }
+
+                        &:last-child { border-bottom: none; }
+                    }
+                }
+            }
+
+            .contenedor-informacion2 {
+                flex: 1;
+                min-width: 280px;
+                background: #f8fafc;
+                padding: 30px;
+                border-radius: 15px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid $border-color;
+
+                h3 {
+                    font-size: 0.9rem;
+                    text-transform: uppercase;
+                    color: $text-muted;
+                    margin-bottom: 15px;
+                }
+
+                .resultado-item {
+                    text-align: center;
+                    margin-bottom: 20px;
+                    width: 100%;
+
+                    p {
+                        font-weight: 700;
+                        color: $text-main;
+                        margin: 0;
+                    }
+                }
+
+                .acoplamiento-valor {
+                    font-size: 4rem;
+                    color: $primary-color;
+                    font-weight: 900;
+                    margin: 10px 0;
+                }
+            }
+        }
+    }
+}
+
+// Animación de Carga
+.cargando-container {
+    padding: 80px;
+    text-align: center;
+    
+    .spinner {
+        width: 50px;
+        height: 50px;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid $primary-color;
+        border-radius: 50%;
+        margin: 0 auto 20px;
+        animation: spin 1s linear infinite;
+    }
+
+    p {
+        font-weight: bold;
+        color: $primary-color;
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+// Media Queries
+@media (max-width: 992px) {
+    #cv-analizado .contenedor-info-cv fieldset {
+        flex-direction: column;
+        .contenedor-informacion, .contenedor-informacion2 { width: 100%; }
+    }
+    
+    #contenedor-form-analizar form {
+        flex-direction: column;
+        align-items: center;
+        #contenedor-input-cv, .drop-area { width: 100%; }
+    }
+}
