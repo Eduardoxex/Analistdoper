@@ -1,0 +1,130 @@
+// Variables (Asegúrate de que coincidan con tu archivo principal)
+$primary-color: #007bff;
+$danger-color: #e74c3c;
+$text-main: #2d3436;
+$text-muted: #636e72;
+$bg-card: #ffffff;
+$bg-body: #f4f7f6;
+$border-color: #dfe6e9;
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: $bg-body;
+    min-height: 100vh;
+}
+
+// --- Sección de Información del Usuario ---
+#informacion_usuario {
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 30px;
+
+    .contenedor-informacion {
+        background: $bg-card;
+        padding: 30px;
+        border-radius: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 25px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        border: 1px solid $border-color;
+
+        label {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: $text-muted;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+
+            p {
+                margin-top: 8px;
+                font-size: 1.1rem;
+                color: $text-main;
+                font-weight: 500;
+                text-transform: none; // Evita que el correo o ID salgan en mayúsculas
+                letter-spacing: normal;
+            }
+        }
+    }
+}
+
+// --- Sección de Opciones de Cuenta ---
+#opciones_realizar {
+    width: 100%;
+    max-width: 900px;
+
+    #contenedor-opciones {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        label {
+            background: $bg-card;
+            padding: 20px 30px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid $border-color;
+            transition: transform 0.2s ease;
+            color: $text-main;
+            font-size: 0.95rem;
+
+            &:hover {
+                transform: translateX(5px);
+            }
+
+            button {
+                padding: 10px 20px;
+                border-radius: 8px;
+                border: none;
+                font-weight: bold;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                min-width: 180px;
+                background: #f8fafc;
+                color: $primary-color;
+                border: 1px solid $primary-color;
+
+                &:hover {
+                    background: $primary-color;
+                    color: white;
+                }
+            }
+
+            // Estilo especial para el botón de eliminar
+            &:last-child {
+                button {
+                    color: $danger-color;
+                    border-color: $danger-color;
+
+                    &:hover {
+                        background: $danger-color;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// --- Responsive ---
+@media (max-width: 768px) {
+    #opciones_realizar #contenedor-opciones label {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+
+        button {
+            width: 100%;
+        }
+    }
+    
+    #informacion_usuario .contenedor-informacion {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}

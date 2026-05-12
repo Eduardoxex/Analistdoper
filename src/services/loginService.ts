@@ -19,6 +19,7 @@ export class LoginService {
 
         if(response.status === 'ok' && response.token){
           localStorage.setItem('token', response.token);
+          localStorage.setItem('userData', JSON.stringify(response.data));
         }
 
       })

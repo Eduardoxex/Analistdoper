@@ -247,3 +247,105 @@ header{
     position: fixed;
   }
 }
+
+
+
+//media
+
+// --- Media Queries para la Landing Page ---
+
+// Tablets y Laptops Pequeñas (992px hacia abajo)
+@media (max-width: 992px) {
+  nav {
+    ul {
+      width: 80%; // Ampliamos el contenedor de los links
+      margin-left: 0; // Centramos la lista
+    }
+  }
+
+  #sobre-la-empresa {
+    height: auto; // Dejamos que el contenido dicte la altura
+    flex-direction: column; // Si tenías elementos a los lados, se apilan
+    padding: 4rem 1.5rem;
+    
+    h2 {
+      margin-top: 5vh; // Reducimos el margen superior exagerado
+      font-size: 2rem;
+    }
+  }
+
+  .grid-servicios {
+    grid-template-columns: repeat(2, 1fr); // Pasamos de 3 a 2 columnas
+    gap: 1.5rem;
+  }
+}
+
+// Smartphones (768px hacia abajo)
+@media (max-width: 768px) {
+  :host {
+    padding-top: 80px; // Ajuste manual del padding superior
+  }
+
+  nav {
+    height: auto;
+    padding: 10px 0;
+
+    ul {
+      flex-direction: row; // Mantenemos fila pero con fuente más pequeña
+      width: 100%;
+      
+      li {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  header h2 {
+    position: relative; // Evitamos que el título fijo tape contenido en móvil
+    margin-top: 0;
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  #sobre-la-empresa {
+    margin: 10px;
+    h2 {
+      font-size: 1.8rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .grid-servicios {
+    grid-template-columns: 1fr; // Una sola columna para las cards
+    
+    .servicio-card {
+      height: auto; // Que la card crezca según el texto
+      min-height: 250px;
+    }
+  }
+
+  #contacto {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+}
+
+// Pantallas muy pequeñas (480px hacia abajo)
+@media (max-width: 480px) {
+  .texto-tipeado {
+    font-size: 1rem; // Evitamos que la animación se desborde
+    border-right-width: 2px;
+  }
+
+  section {
+    padding: 3rem 1rem;
+  }
+
+  footer {
+    padding: 1.5rem 1rem;
+    font-size: 0.8rem;
+  }
+}

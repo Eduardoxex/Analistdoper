@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {NgForm, FormsModule} from '@angular/forms';
 import {ConvertirAPdf} from '../../services/convertir-a-pdf';
 import {NavBar} from '../../componentes/nav-bar/nav-bar';
 import {CvAnalisis} from '../../services/cv-analisis';
 import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-operaciones',
@@ -16,14 +17,17 @@ export class Operaciones {
 
   cv_analizado: boolean = false;
   oja_de_vida: File | any = null;
-  name_use: any = localStorage.getItem('token');
+  info_usuario: any = localStorage.getItem('userData');
+  name_use: any = JSON.parse(this.info_usuario);
   contenido_a_renderizar: any = null;
   cargando: boolean = false;
 
     constructor(private convertirPdf: ConvertirAPdf,
                 private analizarCvService: CvAnalisis
     ){}
-
+    ngOnInit(){
+      console.log('esta es la data: ', this.name_use.user_position);
+    }
 
 
   onFileSelected(event: any){

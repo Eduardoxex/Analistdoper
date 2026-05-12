@@ -1,3 +1,37 @@
 <app-nav-bar></app-nav-bar>
+<main>
 
-<p>ajustes works!</p>
+    <section id="informacion_usuario">
+        <div class="contenedor-informacion">
+            <label>Nombre:
+                <p>{{name_use.user_name}}</p>
+            </label>
+            <label>Identificador:
+                <p>{{name_use.user_user}}</p>
+            </label>
+            <label>Correo:
+                <p>{{name_use.user_email}}</p>
+            </label>
+            <label>Posicion:
+                <p>{{name_use.user_posicion}}</p>
+            </label>            
+        </div>
+    </section>
+    <section id="opciones_realizar">
+        <div id="contenedor-opciones">
+            <label>Actualiza tu contrasena a una diferente para evitar problemas a futuro
+                <button>Actualizar contrasena</button>
+            </label>
+            <label>Deseas cambiar el nombre, por favor utiliza este boton para cambiarlo
+                <button >Actualizar nombre</button>
+            </label>
+            <label>Has cambiado la posicion que desarollas en tu trabajo, comentanos cual es tu nuevo empleo
+                <button >Actualizar posicion</button>
+            </label>
+            <label>No deseas tenener esta cuenta por mas tiempo, utiliza este boton para eliminar la cuenta
+                <button (click)="eliminarCuenta(name_use.user_user)">Actualizar eliminar cuenta</button>
+            </label> 
+        </div>
+    </section>
+</main>
+

@@ -301,3 +301,87 @@ footer {
         #contenedor-input-cv, .drop-area { width: 100%; }
     }
 }
+
+
+//media
+
+main {
+    /* ... tu código SCSS existente ... */
+
+    /* Tablets y Pantallas Medianas (menos de 992px) */
+    @media (max-width: 992px) {
+        #analizar-cv, #cv-analizado {
+            margin: 20px auto; // Centramos y ajustamos margen externo
+            width: 95%; // Aprovechamos más el ancho de la pantalla
+
+            #contenedor-form-analizar, .contenedor-info-cv {
+                margin-left: 0; // Eliminamos el desplazamiento forzado lateral
+                width: 100%;
+            }
+            
+            // Ajuste para el fieldset de resultados en tablets
+            fieldset {
+                flex-direction: column; // Si usas flex para columnas, aquí las apilamos
+                gap: 20px;
+            }
+        }
+    }
+
+    /* Móviles (menos de 768px) */
+    @media (max-width: 768px) {
+        #analizar-cv, #cv-analizado {
+            margin: 10px auto;
+            width: 98%;
+
+            #contenedor-form-analizar, .contenedor-info-cv {
+                padding: 15px; // Padding interno más compacto
+            }
+
+            // El formulario de análisis se apila verticalmente
+            form {
+                flex-direction: column;
+                align-items: center;
+
+                label, #contenedor-input-cv {
+                    width: 100%; // Ocupan todo el ancho
+                    min-width: unset;
+                }
+
+                .drop-area {
+                    height: 200px; // Reducimos altura para ahorrar scroll
+                }
+
+                textarea {
+                    height: 150px; // Altura más cómoda para móviles
+                }
+
+                button {
+                    width: 100%; // Botón táctil fácil de presionar
+                    margin-top: 10px;
+                }
+            }
+
+            // Ajustes en la visualización del análisis
+            fieldset {
+                padding: 15px;
+                
+                .contenedor-informacion, .contenedor-informacion2 {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    /* Móviles Extra Pequeños (menos de 480px) */
+    @media (max-width: 480px) {
+        #contenedor-form-analizar, .contenedor-info-cv {
+            border-radius: 10px; // Bordes menos pronunciados
+            box-shadow: none; // Diseño más plano para rendimiento y limpieza visual
+            border: 1px solid $border-color;
+        }
+
+        .header-analisis h2 {
+            font-size: 1.2rem; // Texto más pequeño para títulos
+        }
+    }
+}
